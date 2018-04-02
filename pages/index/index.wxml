@@ -1,9 +1,12 @@
 <view class='page1'>
-<checkbox-group bindchange="checkboxChange" style="display:flex;flex-direction: column">
-  <label class='checkbox' wx:for="{{listOne}}" >
+<checkbox-group bindchange="checkboxChange" style="display:flex;flex-direction: column"  wx:if="{{show.page1}}">
+  <label class='checkbox' wx:for="{{listOne}}" wx:if="{{item.show}}">
     <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
   </label>
-</checkbox-group> 
+</checkbox-group>
+</view>
+<view>
+<button bindtap="switchPage">显示第二页</button>
 </view>
 <!-- <button id='storageInfo' bindtap="getLocalInfo" type='default'>获取用户缓存</button> -->
 

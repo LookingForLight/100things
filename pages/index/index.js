@@ -5,13 +5,23 @@ Page({
   data: {
     
     listOne:[
-      { name: '2221', value: '美国',checked:false },
-      { name: '2', value: '中国', checked:false },
-      { name: '3', value: '巴西', checked: false },
-      { name: '4', value: '日本', checked: false},
-      { name: '5', value: '英国', checked: false},
-      { name: '6', value: '法国', checked: false}
+      { name: '1', value: '美国',checked:false,show:true },
+      { name: '2', value: '中国', checked: false, show: true },
+      { name: '3', value: '巴西', checked: false, show: true},
+      { name: '4', value: '日本', checked: false, show: true},
+      { name: '5', value: '英国', checked: false, show: true},
+      { name: '6', value: '法国', checked: false, show: true},
+      { name: '7', value: '美国1', checked: false, show: false },
+      { name: '8', value: '中国1', checked: false, show: false},
+      { name: '9', value: '巴西1', checked: false, show: false},
+      { name: '10', value: '日本1', checked: false, show: false},
+      { name: '11', value: '英国1', checked: false, show: false},
+      { name: '12', value: '法国1', checked: false, show: false}
     ],
+    show:{
+      page1:true,
+      page2:true
+    },
     choosedData:[]
   },
   //事件处理函数
@@ -67,5 +77,15 @@ Page({
     })
     // console.log("after")
 
+  },
+  switchPage:function(){
+    var that=this
+    var pageTwo = that.data.listOne
+    for (var i=6;i<12;i++){
+      pageTwo[i].show = true
+    }
+    that.setData({
+      listOne: pageTwo
+    })
   }
 })
