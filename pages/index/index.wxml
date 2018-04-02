@@ -1,0 +1,9 @@
+<view class='page1'>
+<checkbox-group bindchange="checkboxChange" style="display:flex;flex-direction: column">
+  <label class='checkbox' wx:for="{{listOne}}" >
+    <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
+  </label>
+</checkbox-group> 
+</view>
+<!-- <button id='storageInfo' bindtap="getLocalInfo" type='default'>获取用户缓存</button> -->
+
