@@ -10,18 +10,6 @@
     "navigationBarTitleText": "要做的100件事",
     "navigationBarTextStyle":"black"
   },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/demo/demo",
-        "text": "demo"
-      }
-    ]
-  },
   "networkTimeout": {
     "request": 4000,
     "downloadFile": 10000

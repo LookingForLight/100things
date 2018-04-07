@@ -1,12 +1,44 @@
-<view class='page1'>
-<checkbox-group bindchange="checkboxChange" style="display:flex;flex-direction: column"  wx:if="{{show.page1}}">
-  <label class='checkbox' wx:for="{{listOne}}" wx:if="{{item.show}}">
-    <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
-  </label>
-</checkbox-group>
+
+<progress percent="{{percent}}" show-info='true' stroke-width='20' color='#09BB07' active='true' />
+<block wx-if="{{show.page1}}">
+  <view class='page' >
+    <checkbox-group bindchange="checkboxChange1">
+      <label class='checkbox' wx:for="{{listOne}}">
+        <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
+      </label>
+    </checkbox-group>
+  </view>
+</block>
+
+<block wx-if="{{show.page2}}">
+  <view class='page'>
+    <checkbox-group bindchange="checkboxChange2" style="display:flex;flex-direction: column">
+        <label class='checkbox' wx:for="{{listTwo}}">
+            <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
+        </label>
+    </checkbox-group>
+  </view>
+</block>
+
+<block wx-if="{{show.page3}}">
+  <view class='page'>
+    <checkbox-group bindchange="checkboxChange3" style="display:flex;flex-direction: column">
+        <label class='checkbox' wx:for="{{listThree}}">
+            <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.value}}
+        </label>
+    </checkbox-group>
+  </view>
+</block>
+
+
+<view class='switch-page'>
+  <button bindtap="switchPage1" class = "switch-button" hover-class='active'>第一页</button>
+  <button bindtap="switchPage2" class = "switch-button" hover-class='active'>第二页</button>
+  <button bindtap="switchPage3" class = "switch-button" hover-class='active'>第三页</button>
+  <button bindtap="switchPage2" class = "switch-button" hover-class='active'>第四页</button>
+  <button bindtap="switchPage1" class = "switch-button" hover-class='active'>第五页</button>
 </view>
-<view>
-<button bindtap="switchPage">显示第二页</button>
-</view>
+
+
 <!-- <button id='storageInfo' bindtap="getLocalInfo" type='default'>获取用户缓存</button> -->
 

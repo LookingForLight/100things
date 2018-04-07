@@ -37,7 +37,7 @@ App({
       })
       }
   },
-
+  //加载page1的缓存数据
   globalData: {
     userInfo: null,
     location: null
