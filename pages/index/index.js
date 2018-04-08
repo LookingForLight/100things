@@ -134,7 +134,7 @@ Page({
   },
   //第一次加载时调用的函数
   onLoad: function () {
-    console.log('onLoad')
+    // console.log('onLoad')
     this.getStorageInfos("page1")
     this.finishCount()
   },
@@ -198,7 +198,7 @@ Page({
         that.setData({
           listOne: originData
         })
-        console.log("endPage1")
+        console.log("end page1")
         break;
 
       case "page2":
@@ -208,7 +208,7 @@ Page({
         that.setData({
           listTwo: originData
         })
-        console.log("endPage2")
+      
         break;
       case "page3":
         originData = that.data.listThree
@@ -217,7 +217,7 @@ Page({
         that.setData({
           listThree: originData
         })
-        console.log("endPage3")
+      
         break;
       case "page4":
         originData = that.data.listFour
@@ -226,7 +226,7 @@ Page({
         that.setData({
           listFour: originData
         })
-        console.log("endPage4")
+      
         break;
       case "page5":
         originData = that.data.listFive
@@ -235,7 +235,7 @@ Page({
         that.setData({
           listFive: originData
         })
-        console.log("endPage5")
+      
         break;
     }
 
@@ -354,11 +354,12 @@ Page({
     var that =this
     //长度为0
     if (storageData.length == 0) {
-      
-      return false
+      console.log("0000000")
+      return 
     }
     //长度不为0
     for (var i = 0; i < originData.length; i++) {
+      console.log("111111111")
       for (var j = 0; j < storageData.length; j++) {
         if (originData[i].name == storageData[j]) {
 
@@ -385,7 +386,13 @@ Page({
     that.setData({
       percent: finishlength
     })
-    console.log(finishlength)
+    if (finishlength == 21){
+      console.log("123123")
+      wx.switchTab({
+        url: '/pages/logs/logs',
+      })
+    }
+   
   },
 
 })

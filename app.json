@@ -1,19 +1,30 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/demo/demo"
+    "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "要做的100件事",
+    "navigationBarTitleText": "100件事",
     "navigationBarTextStyle":"black"
   },
   "networkTimeout": {
     "request": 4000,
     "downloadFile": 10000
   },
-  "debug": true
+  "tabBar":{
+
+    "list":[
+
+      {"pagePath":"pages/index/index",
+       "text":"home"
+      },
+      {"pagePath":"pages/logs/logs",
+       "text":"completed"
+      }
+    ]
+  },
+  "debug": false
 
 }
