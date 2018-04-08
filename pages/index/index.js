@@ -134,6 +134,7 @@ Page({
   },
   //第一次加载时调用的函数
   onLoad: function () {
+    wx.hideTabBar({})
     // console.log('onLoad')
     this.getStorageInfos("page1")
     this.finishCount()
@@ -194,11 +195,13 @@ Page({
         
         originData = that.data.listOne
         storageData = wx.getStorageSync("page1") || []
+
         this.loopData(originData, storageData)
+
         that.setData({
           listOne: originData
         })
-        console.log("end page1")
+
         break;
 
       case "page2":
@@ -354,12 +357,15 @@ Page({
     var that =this
     //长度为0
     if (storageData.length == 0) {
-      console.log("0000000")
-      return 
+      
+      for (var i = 0; i < originData.length; i++){
+
+        originData[i].checked = false
+      }
     }
     //长度不为0
     for (var i = 0; i < originData.length; i++) {
-      console.log("111111111")
+
       for (var j = 0; j < storageData.length; j++) {
         if (originData[i].name == storageData[j]) {
 
@@ -386,13 +392,22 @@ Page({
     that.setData({
       percent: finishlength
     })
-    if (finishlength == 21){
-      console.log("123123")
+    if (finishlength == 100){
       wx.switchTab({
-        url: '/pages/logs/logs',
+        url: '/pages/done/done',
       })
     }
-   
+  
   },
+
+  onShareAppMessage(res){
+
+    return {
+
+      title: '情侣间要做的100件事',
+      path: '/pages/index/index',
+      imageUrl:"../resource/marry.jpg"
+    }
+  }
 
 })
