@@ -14,6 +14,18 @@
     "request": 4000,
     "downloadFile": 10000
   },
+  "tabBar":{
+
+    "list":[{
+      "pagePath": "pages/index/index",
+      "text": "index"
+    },
+    {
+      "pagePath": "pages/demo/demo",
+      "text": "demo"
+    }
+    ]
+  },
   "debug": true
 
 }
