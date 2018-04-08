@@ -4,7 +4,7 @@ progress {
   margin-left: 16rpx
   
 }
-.page {
+.page1 .page2 .page3 .page4 .page5{
 
   margin:20rpx 4rpx;
 

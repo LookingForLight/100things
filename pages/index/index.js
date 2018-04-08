@@ -3,7 +3,21 @@
 var app = getApp()
 Page({
   data: {
-    
+    show: {
+      main:true,
+      page1: true,
+      page2: false,
+      page3: false,
+      page4: false,
+      page5: false
+    },
+    bgcolor:{
+      color1: "#09BB07",
+      color2: "#FFFFFF",
+      color3: "#FFFFFF",
+      color4: "#FFFFFF",
+      color5: "#FFFFFF"
+    },
     listOne:[
       { name: '1', value: '手牵手压马路',checked:false},
       { name: '2', value: '情侣装逛街', checked: false },
@@ -71,12 +85,50 @@ Page({
       { name: '59', value: '一起淋一场雨', checked: false },
       { name: '60', value: '一起玩游戏', checked: false }
     ],
-
-    show:{
-      page1:true,
-      page2:false,
-      page3: false
-    },
+    listFour: [
+      { name: '61', value: '去郊外踏青', checked: false },
+      { name: '62', value: '给对方一个专属昵称', checked: false },
+      { name: '63', value: '互穿对方的衣服拍张照', checked: false },
+      { name: '64', value: '为对方家长准备礼物', checked: false },
+      { name: '65', value: '跳一支舞', checked: false },
+      { name: '66', value: '教我一项你的专长', checked: false },
+      { name: '67', value: '一起设计未来的家', checked: false },
+      { name: '68', value: '逛家具城，为家置办东西', checked: false },
+      { name: '69', value: '去看一片花海', checked: false },
+      { name: '70', value: '闭上眼睛让对方牵着过马路', checked: false },
+      { name: '71', value: '一起荡秋千', checked: false },
+      { name: '72', value: '教我画一次妆', checked: false },
+      { name: '73', value: '一起去鬼屋', checked: false },
+      { name: '74', value: '看一场比赛', checked: false },
+      { name: '75', value: '喝同一杯饮料', checked: false },
+      { name: '76', value: '打电话不说话', checked: false },
+      { name: '77', value: '一起放孔明灯', checked: false },
+      { name: '78', value: '享受一次浪漫的烛光晚餐', checked: false },
+      { name: '79', value: '一起打扑克', checked: false },
+      { name: '80', value: '去看城市的夜景', checked: false }
+    ],
+    listFive: [
+      { name: '81', value: '比赛吃西瓜', checked: false },
+      { name: '82', value: '将一起拍的照片做成一个相册', checked: false },
+      { name: '83', value: '做公交和地铁', checked: false },
+      { name: '84', value: '拍下彼此的丑照', checked: false },
+      { name: '85', value: '分享彼此的梦想', checked: false },
+      { name: '86', value: '做一个爱情漂流瓶', checked: false },
+      { name: '87', value: '在树下埋下我们的约定', checked: false },
+      { name: '88', value: '写一周日记然后交换', checked: false },
+      { name: '89', value: '玩真心话大冒险，一人一个问题', checked: false },
+      { name: '90', value: '靠着你的肩膀睡觉', checked: false },
+      { name: '91', value: '玩一些幼稚的游戏', checked: false },
+      { name: '92', value: '珍重的对对方说一声我爱你', checked: false },
+      { name: '93', value: '摔跤了或者同时转头接吻', checked: false },
+      { name: '94', value: '纹一个情侣纹身', checked: false },
+      { name: '95', value: '不做任何计划，享受一段慵懒的时光', checked: false },
+      { name: '96', value: '在朋友面前大方介绍彼此', checked: false },
+      { name: '97', value: '生病的时候陪着对方', checked: false },
+      { name: '98', value: '一起通宵跨年守岁', checked: false },
+      { name: '99', value: '专心为对方做一件事情哪怕不起眼', checked: false },
+      { name: '100', value: '找一个空闲的时间，认真聊一聊未来的事情', checked: false }
+    ],
     percent:0
 
   },
@@ -84,8 +136,6 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     this.getStorageInfos("page1")
-    this.getStorageInfos("page2")
-    this.getStorageInfos("page3")
     this.finishCount()
   },
 
@@ -107,6 +157,20 @@ Page({
     var choosedData = e.detail.value
     this.setStorageInfos("page3", choosedData)
     this.getStorageInfos("page3")
+    this.finishCount()
+
+  },
+  checkboxChange4: function (e) {
+    var choosedData = e.detail.value
+    this.setStorageInfos("page4", choosedData)
+    this.getStorageInfos("page4")
+    this.finishCount()
+
+  },
+  checkboxChange5: function (e) {
+    var choosedData = e.detail.value
+    this.setStorageInfos("page5", choosedData)
+    this.getStorageInfos("page5")
     this.finishCount()
 
   },
@@ -151,9 +215,27 @@ Page({
         storageData = wx.getStorageSync("page3") || []
         this.loopData(originData, storageData)
         that.setData({
-          listTwo: originData
+          listThree: originData
         })
         console.log("endPage3")
+        break;
+      case "page4":
+        originData = that.data.listFour
+        storageData = wx.getStorageSync("page4") || []
+        this.loopData(originData, storageData)
+        that.setData({
+          listFour: originData
+        })
+        console.log("endPage4")
+        break;
+      case "page5":
+        originData = that.data.listFive
+        storageData = wx.getStorageSync("page5") || []
+        this.loopData(originData, storageData)
+        that.setData({
+          listFive: originData
+        })
+        console.log("endPage5")
         break;
     }
 
@@ -163,32 +245,106 @@ Page({
     var that = this
     that.setData({
       show: {
+        main: true,
         page1: true,
         page2: false,
-        page3: false
+        page3: false,
+        page4: false,
+        page5: false
+      },
+      bgcolor:{
+        color1: "#09BB07",
+        color2: "#FFFFFF",
+        color3: "#FFFFFF",
+        color4: "#FFFFFF",
+        color5: "#FFFFFF"
       }
     })
   },
   switchPage2: function () {
     var that = this
-
+    this.getStorageInfos("page2")
     that.setData({
       show: {
+        main: true,
         page1: false,
         page2: true,
-        page3: false
+        page3: false,
+        page4: false,
+        page5: false
+      },
+      bgcolor: {
+        color1: "#FFFFFF",
+        color2: "#09BB07",
+        color3: "#FFFFFF",
+        color4: "#FFFFFF",
+        color5: "#FFFFFF"
       }
     })
 
   },
   switchPage3: function () {
     var that = this
-
+    this.getStorageInfos("page3")
     that.setData({
       show: {
+        main: true,
         page1: false,
         page2: false,
-        page3: true
+        page3: true,
+        page4: false,
+        page5: false
+      },
+      bgcolor: {
+        color1: "#FFFFFF",
+        color2: "#FFFFFF",
+        color3: "#09BB07",
+        color4: "#FFFFFF",
+        color5: "#FFFFFF"
+      }
+    })
+
+  },
+  switchPage4: function () {
+    var that = this
+    this.getStorageInfos("page4")
+    that.setData({
+      show: {
+        main: true,
+        page1: false,
+        page2: false,
+        page3: false,
+        page4: true,
+        page5: false
+      },
+      bgcolor: {
+        color1: "#FFFFFF",
+        color2: "#FFFFFF",
+        color3: "#FFFFFF",
+        color4: "#09BB07",
+        color5: "#FFFFFF"
+      }
+    })
+
+  },
+  switchPage5: function () {
+    var that = this
+    this.getStorageInfos("page5")
+    that.setData({
+      show: {
+        main: true,
+        page1: false,
+        page2: false,
+        page3: false,
+        page4: false,
+        page5: true
+      },
+      bgcolor: {
+        color1: "#FFFFFF",
+        color2: "#FFFFFF",
+        color3: "#FFFFFF",
+        color4: "#FFFFFF",
+        color5: "#09BB07"
       }
     })
 
@@ -196,11 +352,12 @@ Page({
   //遍历缓存中与data中的数据
   loopData: function (originData, storageData){
     var that =this
+    //长度为0
     if (storageData.length == 0) {
-      console.log("长度为0")
+      
       return false
     }
-    console.log("长度为不为0")
+    //长度不为0
     for (var i = 0; i < originData.length; i++) {
       for (var j = 0; j < storageData.length; j++) {
         if (originData[i].name == storageData[j]) {
@@ -220,7 +377,10 @@ Page({
     var that = this
     var page1length = wx.getStorageSync("page1").length || 0
     var page2length = wx.getStorageSync("page2").length ||0
-    var finishlength = page1length + page2length
+    var page3length = wx.getStorageSync("page3").length || 0
+    var page4length = wx.getStorageSync("page4").length || 0
+    var page5length = wx.getStorageSync("page5").length || 0
+    var finishlength = page1length + page2length + page3length + page4length + page5length
 
     that.setData({
       percent: finishlength
