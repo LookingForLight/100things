@@ -3,6 +3,8 @@
 var app = getApp()
 Page({
   data: {
+    boxheight:53,
+    pmargin:14,
     show: {
       main:true,
       page1: true,
@@ -12,7 +14,7 @@ Page({
       page5: false
     },
     bgcolor:{
-      color1: "#09BB07",
+      color1: "#a9c9f2",
       color2: "#FFFFFF",
       color3: "#FFFFFF",
       color4: "#FFFFFF",
@@ -38,7 +40,7 @@ Page({
       { name: '17', value: '一起做顿大餐', checked: false },
       { name: '18', value: '逛一逛花鸟市场', checked: false },
       { name: '19', value: '去看电影', checked: false },
-      { name: '20', value: '找一件安静的酒吧', checked: false },
+      { name: '20', value: '找一间安静的酒吧', checked: false },
 
     ],
     listTwo:[
@@ -136,6 +138,7 @@ Page({
   onLoad: function () {
     wx.hideTabBar({})
     // console.log('onLoad')
+    this.initHeight()
     this.getStorageInfos("page1")
     this.finishCount()
   },
@@ -256,7 +259,7 @@ Page({
         page5: false
       },
       bgcolor:{
-        color1: "#09BB07",
+        color1: "#a9c9f2",
         color2: "#FFFFFF",
         color3: "#FFFFFF",
         color4: "#FFFFFF",
@@ -278,7 +281,7 @@ Page({
       },
       bgcolor: {
         color1: "#FFFFFF",
-        color2: "#09BB07",
+        color2: "#a9c9f2",
         color3: "#FFFFFF",
         color4: "#FFFFFF",
         color5: "#FFFFFF"
@@ -301,7 +304,7 @@ Page({
       bgcolor: {
         color1: "#FFFFFF",
         color2: "#FFFFFF",
-        color3: "#09BB07",
+        color3: "#a9c9f2",
         color4: "#FFFFFF",
         color5: "#FFFFFF"
       }
@@ -324,7 +327,7 @@ Page({
         color1: "#FFFFFF",
         color2: "#FFFFFF",
         color3: "#FFFFFF",
-        color4: "#09BB07",
+        color4: "#a9c9f2",
         color5: "#FFFFFF"
       }
     })
@@ -347,7 +350,7 @@ Page({
         color2: "#FFFFFF",
         color3: "#FFFFFF",
         color4: "#FFFFFF",
-        color5: "#09BB07"
+        color5: "#a9c9f2"
       }
     })
 
@@ -399,7 +402,7 @@ Page({
     }
   
   },
-
+  //分享
   onShareAppMessage(res){
 
     return {
@@ -408,6 +411,35 @@ Page({
       path: '/pages/index/index',
       imageUrl:"../resource/marry.jpg"
     }
-  }
+  },
+  //初始化高度
+
+  initHeight:function(){
+    var that = this
+    try {
+      var res = wx.getSystemInfoSync()
+  
+    } catch (e) {
+      // Do something when catch error
+    }
+
+    var model = res.model
+    var windowHeight = res.windowHeight
+    if (windowHeight>=624){
+
+      if (model =="iPhone X"){
+
+        that.setData({
+
+          boxheight:66
+        })
+      }else{
+        that.setData({
+
+          pmargin: 18
+        })
+      }
+    }
+  },
 
 })

@@ -1,64 +1,65 @@
 
 <view class='main' wx-if="{{show.main}}">
-<progress percent="{{percent}}" show-info='true' stroke-width='20' color='#09BB07' active='true' />
-<block wx-if="{{show.page1}}">
-  <view class='page1' >
-    <checkbox-group bindchange="checkboxChange1">
-      <label class='checkbox' wx:for="{{listOne}}">
-        <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.name}}:  {{item.value}}
-      </label>
-    </checkbox-group>
-  </view>
-</block>
+  <progress percent="{{percent}}" show-info='true' stroke-width='20' color='#09BB07' active='true' />
+  <block wx-if="{{show.page1}}">
+    <view class='page' >
+      <checkbox-group bindchange="checkboxChange1">
+        <label class='checkbox' wx:for="{{listOne}}" style='height:{{boxheight}}rpx'>
+          <checkbox value='{{item.name}}' checked='{{item.checked}}' />{{item.name}}:  {{item.value}}
+        </label>
+      </checkbox-group>
+    </view>
+  </block>
 
-<block wx-if="{{show.page2}}">
-  <view class='page2'>
-    <checkbox-group bindchange="checkboxChange2" style="display:flex;flex-direction: column">
+  <block wx-if="{{show.page2}}">
+    <view class='page'>
+      <checkbox-group bindchange="checkboxChange2">
         <label class='checkbox' wx:for="{{listTwo}}" wx:for-item="item2">
             <checkbox value='{{item2.name}}' checked='{{item2.checked}}' />{{item2.name}}:  {{item2.value}}
         </label>
-    </checkbox-group>
-  </view>
-</block>
+      </checkbox-group>
+    </view>
+  </block>
 
-<block wx-if="{{show.page3}}">
-  <view class='page3'>
-    <checkbox-group bindchange="checkboxChange3" style="display:flex;flex-direction: column">
+  <block wx-if="{{show.page3}}">
+    <view class='page'>
+      <checkbox-group bindchange="checkboxChange3">
         <label class='checkbox' wx:for="{{listThree}}" wx:for-item="item3">
             <checkbox value='{{item3.name}}' checked='{{item3.checked}}' />{{item3.name}}:  {{item3.value}}
         </label>
-    </checkbox-group>
-  </view>
-</block>
+      </checkbox-group>
+    </view>
+  </block>
 
-<block wx-if="{{show.page4}}">
-  <view class='page4'>
-    <checkbox-group bindchange="checkboxChange4" style="display:flex;flex-direction: column">
+  <block wx-if="{{show.page4}}">
+    <view class='page'>
+      <checkbox-group bindchange="checkboxChange4">
         <label class='checkbox' wx:for="{{listFour}}" wx:for-item="item4">
             <checkbox value='{{item4.name}}' checked='{{item4.checked}}' />{{item4.name}}:  {{item4.value}}
         </label>
-    </checkbox-group>
-  </view>
-</block>
+      </checkbox-group>
+    </view>
+  </block>
 
-<block wx-if="{{show.page5}}">
-  <view class='page5'>
-    <checkbox-group bindchange="checkboxChange5" style="display:flex;flex-direction: column">
+  <block wx-if="{{show.page5}}">
+    <view class='page'>
+      <checkbox-group bindchange="checkboxChange5">
         <label class='checkbox' wx:for="{{listFive}}" wx:for-item="item5">
             <checkbox value='{{item5.name}}' checked='{{item5.checked}}' />{{item5.name}}:  {{item5.value}}
         </label>
-    </checkbox-group>
+      </checkbox-group>
+    </view>
+  </block>
+
+
+  <view class='switch-page' style='margin:{{pmargin}}rpx'>
+    <button bindtap="switchPage1" class = "switch-button" style='background-color:{{bgcolor.color1}}'>第一页</button>
+    <button bindtap="switchPage2" class = "switch-button" style='background-color:{{bgcolor.color2}}'>第二页</button>
+    <button bindtap="switchPage3" class = "switch-button" style='background-color:{{bgcolor.color3}}'>第三页</button> 
+    <button bindtap="switchPage4" class = "switch-button" style='background-color:{{bgcolor.color4}}'>第四页</button>
+    <button bindtap="switchPage5" class = "switch-button"  style='background-color:{{bgcolor.color5}}'>第五页</button>
   </view>
-</block>
 
-
-<view class='switch-page'>
-  <button bindtap="switchPage1" class = "switch-button" hover-class='active' style='background-color:{{bgcolor.color1}}'>第一页</button>
-  <button bindtap="switchPage2" class = "switch-button" hover-class='active' style='background-color:{{bgcolor.color2}}'>第二页</button>
-  <button bindtap="switchPage3" class = "switch-button" hover-class='active' style='background-color:{{bgcolor.color3}}'>第三页</button> 
-  <button bindtap="switchPage4" class = "switch-button" hover-class='active' style='background-color:{{bgcolor.color4}}'>第四页</button>
-  <button bindtap="switchPage5" class = "switch-button" hover-class='active' style='background-color:{{bgcolor.color5}}'>第五页</button>
-</view>
 
 </view>
 

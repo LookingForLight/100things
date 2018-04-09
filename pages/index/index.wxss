@@ -1,39 +1,40 @@
 /**index.wxss**/
+.main {
+
+  display: flex;
+  flex-direction: column;
+  background-color: #f2d8e5;
+
+}
 progress {
 
-  margin-left: 16rpx
+  height: 70rpx;
+  padding-left:20rpx
   
 }
-.page1 .page2 .page3 .page4 .page5{
+.page {
 
-  margin:20rpx 4rpx;
-
+  margin: 4rpx 20rpx
 }
 checkbox-group {
   display:flex;
   flex-direction: column;
   font-size: 28rpx;
-  margin:6rpx 12rpx
+  color: #b196c1
+
 }
 
 .checkbox {
-  margin:3.5rpx 0rpx
+  height: 53rpx
 }
 .switch-page {
 
   display:flex;
-  flex-direction: row
-  
+  flex-direction: row;
+  margin: 14rpx
 }
 
 .switch-button {
 
   font-size: 25rpx
-}
-
-.active {
-
-  background-color:#09BB07 ;
-  font-weight: bold;
-  /* font-size: 28rpx */
 }

@@ -5,9 +5,9 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "100件事",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#a9c9f2",
+    "navigationBarTitleText": "100件事儿",
+    "navigationBarTextStyle":"#FFFFFF"
   },
   "networkTimeout": {
     "request": 4000,
