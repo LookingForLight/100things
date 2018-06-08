@@ -92,7 +92,7 @@ Page({
       { name: '62', value: '给对方一个专属昵称', checked: false },
       { name: '63', value: '互穿对方的衣服拍张照', checked: false },
       { name: '64', value: '为对方家长准备礼物', checked: false },
-      { name: '65', value: '跳一支舞', checked: false },
+      { name: '65', value: '吃一次自助吃到扶墙', checked: false },
       { name: '66', value: '教我一项你的专长', checked: false },
       { name: '67', value: '一起设计未来的家', checked: false },
       { name: '68', value: '逛家具城，为家置办东西', checked: false },
@@ -123,7 +123,7 @@ Page({
       { name: '91', value: '玩一些幼稚的游戏', checked: false },
       { name: '92', value: '珍重的对对方说一声我爱你', checked: false },
       { name: '93', value: '摔跤了或者同时转头接吻', checked: false },
-      { name: '94', value: '纹一个情侣纹身', checked: false },
+      { name: '94', value: '通宵网吧/KTV', checked: false },
       { name: '95', value: '不做任何计划，享受一段慵懒的时光', checked: false },
       { name: '96', value: '在朋友面前大方介绍彼此', checked: false },
       { name: '97', value: '生病的时候陪着对方', checked: false },
@@ -186,6 +186,7 @@ Page({
     } catch (e) {
 
     }
+
   },
   //获取相关页数对应的缓存并与页面绑定数据
   getStorageInfos: function (page){
@@ -425,6 +426,7 @@ Page({
 
     var model = res.model
     var windowHeight = res.windowHeight
+    console.log(windowHeight)
     if (windowHeight>=624){
 
       if (model =="iPhone X"){
